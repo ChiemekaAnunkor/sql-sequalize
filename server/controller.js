@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config() //if this doesnt work use this require('dotenv').config({ path: '../.env' })
+
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
@@ -28,10 +29,6 @@ module.exports = {
                 rating integer, 
                 country_id int not null references countries (country_id)
             );
-            insert into cities (name, rating, country_id)
-            values ('Austin', 3, 187),
-            ('Dallas', 4, 187),
-            ('Houston', 2, 187);
 
             insert into countries (name)
             values ('Afghanistan'),
